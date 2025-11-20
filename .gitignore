@@ -54,3 +54,25 @@ CATKIN_IGNORE
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Node / JS
+node_modules/
+package-lock.json
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+
+# Next.js
+.next/
+dist/
+out/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Optional caches
+.npm/
+.pnpm-store/
