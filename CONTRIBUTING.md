@@ -1,4 +1,4 @@
-## Contributing to so-101-ros2
+## Contributing to lang2pick
 
 Thank you for your interest in contributing! This document explains how to report issues, propose changes, and submit pull requests so we can review and accept contributions quickly.
 

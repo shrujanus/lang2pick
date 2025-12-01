@@ -1,0 +1,6 @@
+geometry_msgs/PoseStamped pick_pose
+geometry_msgs/PoseStamped place_pose
+string object_id
+---
+bool success
+string message

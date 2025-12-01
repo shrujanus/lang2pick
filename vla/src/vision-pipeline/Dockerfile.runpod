@@ -1,0 +1,20 @@
+FROM runpod/base:0.3.0-cuda11.8
+
+WORKDIR /app
+
+# System deps for FFmpeg (aiortc/av)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg libavdevice-dev libavfilter-dev libavformat-dev libavcodec-dev \
+    libavutil-dev libswresample-dev libswscale-dev pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy only the vision pipeline to keep the image small.
+COPY vla/src/vision-pipeline /app
+
+# Install dependencies for WebRTC + gRPC + ONNXRuntime.
+RUN pip install --no-cache-dir -r requirements-runpod.txt
+
+ENV PYTHONPATH=/app:$PYTHONPATH
+
+# Default entrypoint (can be overridden). For WebRTC+gRPC detection server:
+CMD ["python3", "-u", "grpc_server.py"]
