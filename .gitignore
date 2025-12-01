@@ -79,3 +79,5 @@ out/
 
 # remove the models
 model/
+weights/
+proto/

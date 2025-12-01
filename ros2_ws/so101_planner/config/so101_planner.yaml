@@ -1,0 +1,9 @@
+so101_planner:
+  ros__parameters:
+    use_sim_time: false
+    arm_group_name: "so101_arm"
+    gripper_group_name: "gripper"
+    gripper_open_pose: "gripper_open"
+    gripper_close_pose: "gripper_secure"
+    home_pose_name: "init"
+    planning_attempts: 10
