@@ -1,7 +1,13 @@
 {
   "name": "so-101-ros2 Dev Container",
   "image": "ghcr.io/shrujanus/ros2_ws:latest",
-  "runArgs": ["--privileged"],
+  "runArgs": [
+    "--gpus",
+    "all",
+    "--add-host",
+    "host.docker.internal:host-gateway",
+    "--privileged"
+  ],
   "workspaceFolder": "/root/repo",
   "mounts": [
     "source=${localWorkspaceFolder},target=/root/repo,type=bind",

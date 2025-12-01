@@ -68,3 +68,15 @@ repos:
     rev: 0.6.0 # Use the latest release
     hooks:
       - id: nbstripout
+
+  # -----------------------------
+  # 8. Next.js lint
+  # -----------------------------
+  # - repo: local
+  #   hooks:
+  #     - id: nextjs-lint
+  #       name: Next.js lint
+  #       entry: bash -c "cd vla/src/web-app/front-end && npm run lint"
+  #       language: system
+  #       pass_filenames: false
+  #       files: ^vla/src/web-app/front-end/.*\.(ts|tsx|js|jsx)$

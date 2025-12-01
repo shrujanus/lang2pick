@@ -20,6 +20,15 @@ RUN apt-get update && apt-get install -y \
     cmake \
     locales \
     nano \
+    ffmpeg \
+    libavdevice-dev \
+    libavfilter-dev \
+    libavformat-dev \
+    libavcodec-dev \
+    libswscale-dev \
+    libavutil-dev \
+    libswresample-dev \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 # Set locale

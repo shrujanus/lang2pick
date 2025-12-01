@@ -76,3 +76,6 @@ out/
 # Optional caches
 .npm/
 .pnpm-store/
+
+# remove the models
+model/
