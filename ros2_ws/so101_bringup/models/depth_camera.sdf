@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="depth_camera">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="depth_camera_link">
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>0.08 0.025 0.025</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="body_visual">
+        <geometry>
+          <box>
+            <size>0.09 0.025 0.025</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+      <!-- Intel RealSense D435i specifications -->
+      <sensor name="rgbd_camera" type="rgbd_camera">
+        <topic>rgbd_camera</topic>
+        <camera>
+          <!-- D435i depth horizontal FOV: 87 degrees = 1.518 radians -->
+          <horizontal_fov>1.518</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <!-- D435i depth range: 0.1m - 10m -->
+            <near>0.1</near>
+            <far>10.0</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.1</near>
+              <far>10.0</far>
+            </clip>
+          </depth_camera>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+  </model>
+</sdf>
