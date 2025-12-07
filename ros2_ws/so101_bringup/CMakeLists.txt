@@ -7,10 +7,8 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(so101_motion REQUIRED)
-find_package(so101_control REQUIRED)
 
-install(DIRECTORY launch
+install(DIRECTORY launch models worlds
   DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)

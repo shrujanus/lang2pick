@@ -3,11 +3,20 @@
 <package format="3">
   <name>so101_bringup</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>launch package for so101 robot</description>
   <maintainer email="shrujanus@gmail.com">root</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>so101_control</exec_depend>
+  <exec_depend>so101_motion</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
