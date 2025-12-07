@@ -9,16 +9,16 @@ moveit_simple_controller_manager:
 
   so101_arm_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
     joints:
       - shoulder_pan
       - shoulder_lift
       - elbow_flex
       - wrist_flex
       - wrist_roll
+    action_ns: follow_joint_trajectory
   gripper_controller:
-    type: GripperCommand
+    type: FollowJointTrajectory
     joints:
       - gripper
-    action_ns: gripper_cmd
+    action_ns: follow_joint_trajectory
     default: true

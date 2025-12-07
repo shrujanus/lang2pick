@@ -7,7 +7,7 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
     gripper_controller:
-      type: position_controllers/GripperActionController
+      type: joint_trajectory_controller/JointTrajectoryController
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -20,11 +20,11 @@ so101_arm_controller:
       - elbow_flex
       - wrist_flex
       - wrist_roll
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
+    command_interfaces: []
+    state_interfaces: []
 gripper_controller:
   ros__parameters:
-    joint: gripper
+    joints:
+      - gripper
+    command_interfaces: []
+    state_interfaces: []

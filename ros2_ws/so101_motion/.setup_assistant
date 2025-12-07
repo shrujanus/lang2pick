@@ -7,19 +7,4 @@ moveit_setup_assistant_config:
   package_settings:
     author_name: Shrujan
     author_email: shrujanus@gmail.com
-    generated_timestamp: 1763399688
-  control_xacro:
-    command:
-      - position
-    state:
-      - position
-      - velocity
-  modified_urdf:
-    xacros:
-      - control_xacro
-  control_xacro:
-    command:
-      - position
-    state:
-      - position
-      - velocity
+    generated_timestamp: 1764976145
