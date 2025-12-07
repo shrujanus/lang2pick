@@ -54,13 +54,20 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration("use_rviz")),
     )
 
+    use_sim_time_arg = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true",
+        description="Use simulation (Gazebo) clock if true",
+    )
+
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
         parameters=[
             PathSubstitution(FindPackageShare("so101_control"))
             / "config"
-            / LaunchConfiguration("controller_config")
+            / LaunchConfiguration("controller_config"),
+            {"use_sim_time": LaunchConfiguration("use_sim_time")},
         ],
         remappings=[("~/robot_description", "/robot_description")],
         output="both",
@@ -98,6 +105,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             use_rviz_arg,
+            use_sim_time_arg,
             description_arg,
             rviz_config_arg,
             controller_config_arg,

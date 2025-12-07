@@ -1,15 +1,34 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="so101_robot">
-  <xacro:arg name="use_mock_hardware" default="false" />
+  <xacro:arg name="use_mock_hardware" default="true" />
+  <xacro:arg name="use_gazebo" default="true" />
+  <xacro:arg name="controller_config_file" default="$(find so101_control)/config/so101.yaml" />
+
+  <!-- Fixed world link for clamping -->
+  <link name="world"/>
 
   <xacro:include filename="$(find so101_description)/urdf/so101_description.urdf.xacro" />
 
   <xacro:so101_new_calib/>
 
+  <!-- Clamp base_link to world (Gazebo will handle this as floating base constraint) -->
+  <joint name="world_base_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
 
   <xacro:include filename="$(find so101_control)/config/so101.ros2_control.xacro" />
 
   <xacro:so101_ros2_control
-    name="so101" use_mock_hardware="$(arg use_mock_hardware)"/>
+    name="so101" use_mock_hardware="$(arg use_mock_hardware)" use_gazebo="$(arg use_gazebo)"/>
+
+  <xacro:if value="$(arg use_gazebo)">
+    <gazebo>
+      <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(arg controller_config_file)</parameters>
+      </plugin>
+    </gazebo>
+  </xacro:if>
 
 </robot>
