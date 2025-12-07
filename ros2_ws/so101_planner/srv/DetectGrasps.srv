@@ -1,0 +1,6 @@
+geometry_msgs/PoseStamped approximate_object_pose
+---
+moveit_msgs/Grasp[] grasps
+float32[] scores
+bool success
+string message

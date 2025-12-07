@@ -1,0 +1,6 @@
+float32[] bbox_pixels
+geometry_msgs/PoseStamped place_pose
+string object_id
+---
+bool success
+string message

@@ -15,7 +15,6 @@ def generate_launch_description() -> LaunchDescription:
     planner_node = Node(
         package="so101_planner",
         executable="so101_planner_node",
-        name="so101_planner",
         output="screen",
         parameters=[params_file],
     )

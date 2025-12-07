@@ -1,0 +1,26 @@
+camera:
+  workspace_limits: [-0.40, 0.40, -0.30, 0.30, 0.00, 0.60]
+  camera_position: [0.50, 0.0, 0.80]
+cloud:
+  samples: 2000
+  voxel_size: 0.003
+  normals_radius: 0.02
+  remove_outliers: true
+hand_search:
+  num_samples: 120
+  hand_depth: 0.06
+  finger_width: 0.010
+  hand_outer_diameter: 0.090
+  hand_height: 0.040
+  init_bite: 0.00
+  image_angle_step: 8
+  num_orientations: 8
+  num_finger_placements: 10
+  dexel_resolution: 30
+scoring:
+  workspace_exclusion_height: 0.01
+  min_score: 0.5
+  task_width: 0.04
+  friction_coefficient: 0.8
+  antipodal_angle: 20.0
+  force_closure_threshold: 0.8

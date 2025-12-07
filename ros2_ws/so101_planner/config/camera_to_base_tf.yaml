@@ -1,0 +1,13 @@
+static_camera_tf:
+  ros__parameters:
+    # Parent and child frames taken from MoveIt 2 eye-to-hand calibration results
+    parent_frame: base_link
+    child_frame: camera_color_optical_frame
+
+    # Translation from base_link to camera frame (meters)
+    translation_xyz: [0.325, -0.012, 1.085]
+
+    # Rotation of camera relative to base_link.
+    # Both quaternion and RPY are provided for convenience.
+    rotation_quaternion_xyzw: [0.0, 0.701057, 0.0, 0.71325]
+    rotation_rpy_xyz: [0.0, -1.39626, 3.14159]
