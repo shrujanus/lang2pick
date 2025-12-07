@@ -105,7 +105,6 @@ graph TD
 
 ## 📝 To-Do List
 
-
 - [x] Hardware interface for SO101 arm
 - [x] Connect with MoveIt 2 planner 
   <div align="center">
@@ -118,6 +117,38 @@ graph TD
 - [ ] Build front-end to interact with VLM and display current picking status
 - [ ] Automate deployment to the cloud
 
+
+
+## Gazebo Pick-and-Place Simulation
+
+The `so101_bringup` package now ships a Gazebo launcher that brings up the calibrated SO-101 arm together with a static RGB-D sensor so you can exercise the planner without touching hardware.
+
+**Prerequisites**
+
+- Install Gazebo Fortress plus the ROS 2 bridges (`gazebo-fortress`, `ros-humble-ros-gz-sim`, `ros-humble-ros-gz-bridge`, `ros-humble-ign-ros2-control`).
+- Build and source the workspace:
+
+```bash
+cd ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+```
+
+**Launch the simulator**
+
+```bash
+ros2 launch so101_bringup gazebo.launch.py
+```
+
+This launches `gz sim` (Fortress), spawns the arm through `ros_gz_sim` using `ign_ros2_control`, brings up the `joint_state_broadcaster`, `so101_arm_controller`, and `gripper_controller`, and adds a configurable RGB-D sensor. Everything runs with `use_sim_time` so MoveIt or your custom planners latch on automatically.
+
+Depth data is bridged onto ROS 2 topics `depth_camera/image`, `depth_camera/depth_image`, `depth_camera/camera_info`, and `depth_camera/points`. Adjust the robot/camera/world parameters inline, e.g.
+
+```bash
+ros2 launch so101_bringup gazebo.launch.py camera_x:=0.4 camera_y:=0.2 camera_pitch:=-1.0 robot_z:=0.25
+```
+
+World files live in `so101_bringup/worlds` and the depth camera SDF is in `so101_bringup/models`, so you can extend the environment (tables, bins, fixtures) or remap the camera topics for your perception stack as needed.
 
 
 ## Project Structure
