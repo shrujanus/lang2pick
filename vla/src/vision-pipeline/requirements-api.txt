@@ -1,0 +1,27 @@
+# Lang2Pick REST API Backend Requirements
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+websockets>=12.0
+
+# HTTP Client
+aiohttp>=3.9.0
+httpx>=0.25.0
+
+# gRPC
+grpcio>=1.60.0
+grpcio-tools>=1.60.0
+
+# Data validation
+pydantic>=2.5.0
+
+# CORS support (included in FastAPI but listed for clarity)
+python-multipart>=0.0.6
+
+# Optional: Redis for task queue (production)
+# redis>=5.0.0
+
+# Optional: Database (production)
+# sqlalchemy>=2.0.0
+# asyncpg>=0.29.0

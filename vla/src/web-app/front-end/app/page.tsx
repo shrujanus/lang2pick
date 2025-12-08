@@ -1,4 +1,4 @@
-import { PromptControl } from '@/components/prompt-control'
+import { PromptControl } from '@/components/prompt-control-new'
 
 export default function Home() {
   return (
