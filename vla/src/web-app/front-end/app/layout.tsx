@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from '@/components/ui/toaster'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'RoboTech | Advanced Robotic Arm Technology',
-  description: 'Experience the future of automation with precision robotic arm technology',
+  title: 'Lang2Pick | SO-101 Robotic Arm Control',
+  description: 'Natural language-driven pick-and-place operations for the SO-101 robotic arm',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans antialiased`}>
         {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>
